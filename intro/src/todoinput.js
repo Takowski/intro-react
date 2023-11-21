@@ -1,6 +1,6 @@
 const TodoInput = () => {
     return (
-      <div className='flex justify-left p-10 border-b-2'>
+      <div className='flex flex-col justify-left p-10 border-b-2'>
       <input
       type='text'
       placeholder='Type a new todo here'
@@ -12,7 +12,7 @@ const TodoInput = () => {
           focus:ring-indigo-600 sm:text-sm sm:leading-6
           w-96"
       />
-      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-32 mt-4'>
       Add Todo
       </button>
       </div>
