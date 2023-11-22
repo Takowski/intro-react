@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-const Todos = () => {
+ const Todos = () => {
     const initialTodo = ["Todo 1", "Todo 2", "Todo 3"];
     const [todo, setTodo] = useState(initialTodo);
-    const [isCompleted,setIsCompleted] = useState(false);
+    const [isCompleted, setIsCompleted] = useState(Array(initialTodo.length).fill(false));
+    const checkHandler = (index) => {
+        setIsCompleted(isCompleted.map((item, idx) => idx === index ? !item : item));
+      }
     
     return (
         <div className="flex flex-col p-10">
@@ -16,8 +19,8 @@ const Todos = () => {
                     <li key={index}>
                         <input 
                         type="checkbox"
-                        checked={isCompleted}
-                        onChange={() => setIsCompleted(!isCompleted)}
+                        checked={isCompleted[index]}
+                        onChange={() => checkHandler(index)}
                           />
                         {todo}
                     </li>
