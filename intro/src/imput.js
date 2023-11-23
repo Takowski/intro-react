@@ -9,7 +9,6 @@ function TodoInput() {
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
-            // Handle the new todo item here
             console.log(inputValue);
             setInputValue('');
         }
