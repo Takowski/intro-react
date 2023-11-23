@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 
-const Todos = () => {
-    const initialTodo = ["Todo 1", "Todo 2", "Todo 3"];
-    const [todos, setTodos] = useState(initialTodo);
 
-    const handleCheckboxChange = (index) => {
-        setTodos(todos.filter((_, idx) => idx !== index));
-    };
 
+
+const Todos = ({ todos, handleCheckboxChange }) => {
     return (
         <div className="flex flex-col p-10">
             <div className='flex justify-left'>
@@ -29,3 +25,4 @@ const Todos = () => {
 }
 
 export default Todos;
+
