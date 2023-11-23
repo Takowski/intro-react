@@ -1,12 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Title from './title.js';
 import TodoInput from './todoinput.js';
 import Todos from './todos.js';
 
-
-
 const App = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+      return JSON.parse(savedTodos);
+    } else {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
@@ -23,8 +32,6 @@ const App = () => {
       <Todos todos={todos} handleCheckboxChange={handleCheckboxChange} />
     </div>
   )
-
-
 }
 
 export default App;
